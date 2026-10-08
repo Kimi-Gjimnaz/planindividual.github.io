@@ -4,713 +4,689 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gjimnazi Milot - Laboratori i Kimisë</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome për ikona -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts: Nunito për pamje miqësore dhe të lexueshme -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
     <style>
+        /* CSS për Aksesueshmëri dhe Profesionalizëm */
         :root {
-            --bg-main: #F0F9FF; /* Sfond blu shumë i çelët, qetësues */
-            --text-main: #0F172A; /* Tekst shumë i errët për kontrast të lartë */
-            --btn-blue: #2563EB;
-            --btn-green: #10B981;
-            --btn-purple: #8B5CF6;
+            --bg-color: #f0f8ff; /* Blu shumë e çelët, qetësuese */
+            --text-color: #002244; /* Kontrast i lartë */
+            --primary-color: #0056b3;
+            --secondary-color: #e6f2ff;
+            --accent-color: #28a745;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Nunito', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            font-size: 22px; /* Shkronja të mëdha për lexueshmëri */
-            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            font-size: 22px; /* Shkronja të mëdha për lexim të lehtë */
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
-        }
-
-        /* Butonat Kryesorë */
-        .btn-large {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 16px 28px;
-            font-size: 24px;
-            font-weight: 800;
-            border-radius: 20px;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 6px 0px rgba(0,0,0,0.15);
-            color: white;
-        }
-        .btn-large:active {
-            transform: translateY(6px);
-            box-shadow: 0 0 0px rgba(0,0,0,0);
-        }
-        .btn-blue { background-color: var(--btn-blue); box-shadow: 0 6px 0px #1D4ED8; }
-        .btn-green { background-color: var(--btn-green); box-shadow: 0 6px 0px #059669; }
-
-        /* Navigimi i Klasave */
-        .class-tab {
-            background-color: #E2E8F0;
-            color: #475569;
-            padding: 16px 32px;
-            border-radius: 24px;
-            font-weight: 800;
-            font-size: 24px;
-            border: 4px solid transparent;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .class-tab.active {
-            background-color: white;
-            color: var(--btn-blue);
-            border-color: var(--btn-blue);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-        }
-
-        /* Navigimi i Eksperimenteve */
-        .exp-btn {
-            background-color: white;
-            color: #334155;
-            padding: 12px 20px;
-            border-radius: 16px;
-            font-weight: 700;
-            font-size: 20px;
-            border: 3px solid #CBD5E1;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .exp-btn:hover { background-color: #F8FAFC; border-color: #94A3B8; }
-        .exp-btn.active {
-            background-color: #EFF6FF;
-            color: var(--btn-blue);
-            border-color: var(--btn-blue);
-        }
-
-        /* Kontejneri i Eksperimentit */
-        .experiment-area {
-            background-color: white;
-            border-radius: 32px;
-            border: 4px dashed #CBD5E1;
-            padding: 30px;
-            min-height: 450px;
-            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 20px;
+        }
+
+        .tabs-container {
+            display: flex;
             justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: 3px solid var(--primary-color);
+            padding: 12px 24px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .sub-tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            max-width: 900px;
+        }
+
+        .sub-tab-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: 2px solid #ccc;
+            padding: 10px 15px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .sub-tab-btn:hover, .sub-tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        #experiment-area {
+            background: white;
+            border: 4px solid #ddd;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            min-height: 400px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+            position: relative;
             overflow: hidden;
-            box-shadow: inset 0 4px 6px rgba(0,0,0,0.05);
         }
 
-        /* --- STILE SPECIFIKE PËR EKSPERIMENTET --- */
-        
-        /* 10.2 Kromatografia */
-        .chrom-paper { width: 100px; height: 250px; background: #F8FAFC; border: 2px solid #CBD5E1; position: relative; }
-        .chrom-dot { width: 20px; height: 20px; border-radius: 50%; position: absolute; bottom: 20px; left: 40px; transition: bottom 3s ease-in-out; }
-        
-        /* 10.3 Asnjanësimi */
-        .beaker { width: 160px; height: 200px; border: 6px solid #94A3B8; border-top: none; border-radius: 0 0 20px 20px; position: relative; overflow: hidden; }
-        .liquid { position: absolute; bottom: 0; width: 100%; height: 70%; transition: background-color 1.5s; background-color: #FCA5A5; /* Fillim acid (kuq) */ }
-        
-        /* 10.4 Modele Molekulare */
-        .atom-circle { display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; font-weight: 800; position: absolute; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: all 0.5s; }
-        .mol-bond { position: absolute; background: #64748B; height: 8px; z-index: 0; }
-        
-        /* 10.5 Gazi nga Acidi */
-        .bubble { position: absolute; background: rgba(255,255,255,0.7); border: 2px solid #94A3B8; border-radius: 50%; bottom: 20px; animation: rise 2s infinite ease-in; opacity: 0; }
-        @keyframes rise { 0% { bottom: 20px; opacity: 1; transform: translateX(0); } 100% { bottom: 180px; opacity: 0; transform: translateX(-10px); } }
-
-        /* 11.2 Ndryshkja */
-        .nail-iron { width: 40px; height: 200px; background: linear-gradient(90deg, #94A3B8, #CBD5E1); border-radius: 0 0 20px 20px; position: relative; overflow: hidden; clip-path: polygon(20% 0, 80% 0, 100% 90%, 50% 100%, 0 90%); }
-        .rust-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #B45309; opacity: 0; transition: opacity 0.2s; mix-blend-mode: multiply; }
-
-        /* 11.4 Termometri */
-        .thermometer { width: 40px; height: 250px; background: white; border: 4px solid #475569; border-radius: 20px 20px 0 0; position: relative; }
-        .thermo-bulb { width: 60px; height: 60px; background: #EF4444; border-radius: 50%; position: absolute; bottom: -30px; left: -14px; border: 4px solid #475569; z-index: 2; }
-        .thermo-fluid { position: absolute; bottom: 0; left: 8px; width: 16px; height: 50%; background: #EF4444; transition: height 1s ease-in-out; border-radius: 10px; z-index: 1; }
-
-        /* 11.5 Lakmusi */
-        .litmus-paper { width: 40px; height: 150px; background: #FEF08A; border: 2px solid #D97706; transition: all 1s; transform: translateY(-50px); }
-        .litmus-paper.dipped { transform: translateY(50px); }
-
-        /* 12.2 Joni Përbashkët */
-        .precipitate { position: absolute; width: 12px; height: 12px; background: white; border-radius: 50%; top: 20px; opacity: 0; }
-        @keyframes fall { to { top: 160px; opacity: 1; } }
-
-        /* 12.3 Katalizatori */
-        .track { width: 100%; max-width: 400px; height: 60px; background: #E2E8F0; border-radius: 30px; position: relative; margin-bottom: 20px; overflow: hidden;}
-        .car { width: 50px; height: 50px; border-radius: 50%; position: absolute; top: 5px; left: 5px; transition: left 3s linear; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
-        .car-slow { background: #F59E0B; transition: left 5s linear; }
-        .car-fast { background: #10B981; transition: left 1.5s linear; } /* Katalizator */
-
-        /* 12.4 Titullimi */
-        .drop { width: 12px; height: 16px; background: #3B82F6; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); opacity: 0; }
-        @keyframes dropFall { 0% { top: -20px; opacity: 1; } 80% { top: 120px; opacity: 1; } 100% { top: 130px; opacity: 0; transform: translateX(-50%) scale(2); } }
-
-        /* 12.5 Oksidimi */
-        .flask { width: 140px; height: 140px; background: transparent; border: 6px solid #64748B; border-radius: 50%; position: relative; overflow: hidden; }
-        .flask::before { content:''; position: absolute; top: -30px; left: 40px; width: 48px; height: 40px; border: 6px solid #64748B; border-bottom: none; background: white; }
-        .flask-liquid { position: absolute; bottom: 0; width: 100%; height: 60%; background: #F59E0B; transition: background-color 2s; } /* Portokalli -> Jeshil */
-
-        /* Sliders */
-        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 40px; width: 40px; border-radius: 50%; background: var(--btn-blue); cursor: pointer; margin-top: -15px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
-        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 12px; cursor: pointer; background: #CBD5E1; border-radius: 6px; }
-
-        /* Njoftimet (Toast) */
-        #toast {
-            position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%);
-            background-color: var(--btn-green); color: white; padding: 20px 40px;
-            border-radius: 50px; font-size: 26px; font-weight: 800;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000; display: flex; align-items: center; gap: 15px;
+        h2.exp-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            text-align: center;
         }
-        #toast.show { bottom: 40px; }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button.action-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: transform 0.1s;
+        }
+
+        button.action-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Toast Notifications */
+        #toast-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: fadeInOut 3s forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            10% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+
+        /* Komponentë të përbashkët të eksperimenteve */
+        .beaker {
+            width: 120px;
+            height: 180px;
+            border: 6px solid #ccc;
+            border-top: none;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            position: relative;
+            background: rgba(255,255,255,0.8);
+            margin: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+        .liquid {
+            width: 100%;
+            height: 50%;
+            background-color: rgba(0, 150, 255, 0.5);
+            transition: background-color 1s, height 1s;
+        }
+        
+        input[type=range] {
+            width: 200px;
+            height: 10px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body>
 
-    <header class="bg-white shadow-md py-6 mb-8 border-b-4 border-blue-100">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <div class="flex items-center gap-4 flex-col md:flex-row">
-                <div class="bg-blue-100 text-blue-600 p-4 rounded-full text-4xl shadow-inner">
-                    <i class="fas fa-school"></i>
-                </div>
-                <div>
-                    <h1 class="text-4xl font-extrabold text-slate-800">Gjimnazi Milot</h1>
-                    <p class="text-2xl font-bold text-slate-500">Laboratori Virtual i Kimisë (PEI)</p>
-                </div>
-            </div>
-            <div class="text-blue-500 text-6xl">
-                <i class="fas fa-flask"></i>
-            </div>
-        </div>
+    <header>
+        <h1>GJIMNAZI MILOT</h1>
+        <p>Laboratori Virtual i Kimisë - Plan Individual</p>
     </header>
 
-    <nav class="max-w-7xl mx-auto px-4 w-full mb-8">
-        <div class="flex justify-center gap-6 flex-wrap">
-            <button onclick="showClass('klasa10')" id="tab-klasa10" class="class-tab active"><i class="fas fa-vial mr-2"></i> Klasa 10</button>
-            <button onclick="showClass('klasa11')" id="tab-klasa11" class="class-tab"><i class="fas fa-fire mr-2"></i> Klasa 11</button>
-            <button onclick="showClass('klasa12')" id="tab-klasa12" class="class-tab"><i class="fas fa-atom mr-2"></i> Klasa 12</button>
-        </div>
-    </nav>
-
-    <main class="flex-grow max-w-7xl mx-auto px-4 w-full mb-12 flex flex-col md:flex-row gap-8">
-        
-        <aside class="w-full md:w-1/3 flex flex-col gap-3 bg-white p-6 rounded-3xl shadow-sm border-2 border-slate-100" id="sidebar-nav">
-            <h2 class="text-2xl font-extrabold text-slate-700 mb-4 border-b-2 border-slate-200 pb-2">Zgjidh Eksperimentin:</h2>
-            <div id="nav-klasa10" class="flex flex-col gap-3">
-                <button onclick="showExp('10', '1')" id="btn-10-1" class="exp-btn active"><i class="fas fa-wind text-blue-500"></i> 1. Shpërhapja</button>
-                <button onclick="showExp('10', '2')" id="btn-10-2" class="exp-btn"><i class="fas fa-palette text-pink-500"></i> 2. Kromatografia</button>
-                <button onclick="showExp('10', '3')" id="btn-10-3" class="exp-btn"><i class="fas fa-adjust text-green-500"></i> 3. Asnjanësimi</button>
-                <button onclick="showExp('10', '4')" id="btn-10-4" class="exp-btn"><i class="fas fa-cubes text-purple-500"></i> 4. Modelet Molekulare</button>
-                <button onclick="showExp('10', '5')" id="btn-10-5" class="exp-btn"><i class="fas fa-smog text-gray-500"></i> 5. Gazi nga Acidi</button>
-            </div>
-            <div id="nav-klasa11" class="flex flex-col gap-3 hidden">
-                <button onclick="showExp('11', '1')" id="btn-11-1" class="exp-btn"><i class="fas fa-bolt text-yellow-500"></i> 1. Elektroliza</button>
-                <button onclick="showExp('11', '2')" id="btn-11-2" class="exp-btn"><i class="fas fa-hammer text-orange-700"></i> 2. Ndryshkja e Hekurit</button>
-                <button onclick="showExp('11', '3')" id="btn-11-3" class="exp-btn"><i class="fas fa-temperature-high text-red-500"></i> 3. Shpejtësia & Temp.</button>
-                <button onclick="showExp('11', '4')" id="btn-11-4" class="exp-btn"><i class="fas fa-thermometer-half text-blue-500"></i> 4. Ekzo/Endotermik</button>
-                <button onclick="showExp('11', '5')" id="btn-11-5" class="exp-btn"><i class="fas fa-scroll text-yellow-600"></i> 5. Letra e Lakmusit</button>
-            </div>
-            <div id="nav-klasa12" class="flex flex-col gap-3 hidden">
-                <button onclick="showExp('12', '1')" id="btn-12-1" class="exp-btn"><i class="fas fa-project-diagram text-purple-600"></i> 1. Forma Gjeometrike</button>
-                <button onclick="showExp('12', '2')" id="btn-12-2" class="exp-btn"><i class="fas fa-snowflake text-blue-400"></i> 2. Joni i Përbashkët</button>
-                <button onclick="showExp('12', '3')" id="btn-12-3" class="exp-btn"><i class="fas fa-forward text-green-500"></i> 3. Katalizatori</button>
-                <button onclick="showExp('12', '4')" id="btn-12-4" class="exp-btn"><i class="fas fa-tint text-pink-500"></i> 4. Titullimi</button>
-                <button onclick="showExp('12', '5')" id="btn-12-5" class="exp-btn"><i class="fas fa-wine-flask text-orange-500"></i> 5. Oksidimi Alkooleve</button>
-            </div>
-        </aside>
-
-        <section class="w-full md:w-2/3">
-            
-            <!-- ================= KLASA 10 ================= -->
-            <div id="content-klasa10">
-                <!-- Exp 10.1: Shpërhapja -->
-                <div id="exp-10-1" class="experiment-area">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Shpërhapja e Grimcave</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Shtyp butonin për të hapur shishen e parfumit dhe shiko si përhapen grimcat.</p>
-                    <canvas id="canvas-10-1" width="500" height="300" class="bg-slate-50 border-2 border-slate-300 rounded-xl mb-6 max-w-full"></canvas>
-                    <button class="btn-large btn-blue" onclick="startDiffusion()"><i class="fas fa-spray-can"></i> Hap Parfumin</button>
-                </div>
-
-                <!-- Exp 10.2: Kromatografia -->
-                <div id="exp-10-2" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Kromatografia</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Njolla e bojës ndahet në ngjyra të ndryshme kur ngjitet lart në letër.</p>
-                    <div class="chrom-paper mb-6 flex flex-col items-center">
-                        <div class="w-full h-8 bg-blue-100 absolute bottom-0 opacity-50"></div> <!-- Uji -->
-                        <div id="chrom-dot-1" class="chrom-dot bg-red-500 z-10" style="bottom: 30px;"></div>
-                        <div id="chrom-dot-2" class="chrom-dot bg-blue-500 z-10" style="bottom: 30px;"></div>
-                        <div id="chrom-dot-3" class="chrom-dot bg-yellow-400 z-10" style="bottom: 30px;"></div>
-                        <div class="chrom-dot bg-black z-20" id="chrom-base" style="bottom: 30px;"></div>
-                    </div>
-                    <button class="btn-large btn-blue" onclick="startChromatography()"><i class="fas fa-play"></i> Fillo Ndarjen</button>
-                </div>
-
-                <!-- Exp 10.3: Asnjanësimi -->
-                <div id="exp-10-3" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Asnjanësimi (Acid + Bazë)</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Shto Bazë në Acid. Kur lëngu të bëhet i gjelbër, është asnjanësuar (pH 7)!</p>
-                    <div class="beaker mb-6">
-                        <div id="neutral-liquid" class="liquid"></div>
-                    </div>
-                    <button class="btn-large btn-blue" onclick="addBase()"><i class="fas fa-plus"></i> Shto Bazë (NaOH)</button>
-                </div>
-
-                <!-- Exp 10.4: Modele Molekulare -->
-                <div id="exp-10-4" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Modelet e Molekulave</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Kliko për të ndërtuar modele të ndryshme molekulare.</p>
-                    <div id="mol-container" class="relative w-full max-w-sm h-64 bg-slate-50 rounded-2xl border-2 border-slate-200 mb-6 flex items-center justify-center">
-                        <span class="text-slate-400 font-bold">Zgjidh një molekulë...</span>
-                    </div>
-                    <div class="flex gap-4">
-                        <button class="btn-large btn-blue" onclick="buildMol('H2O')">Uji (H₂O)</button>
-                        <button class="btn-large btn-green" onclick="buildMol('CO2')">Gazi (CO₂)</button>
-                    </div>
-                </div>
-
-                <!-- Exp 10.5: Gazi nga Acidi -->
-                <div id="exp-10-5" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Metal + Acid = Gaz</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Kur hedhim zink (Zn) në acid, çlirohet gaz hidrogjeni (flluska).</p>
-                    <div class="beaker mb-6 relative">
-                        <div class="liquid bg-blue-100" style="height: 80%;"></div>
-                        <div class="w-16 h-8 bg-slate-600 absolute bottom-2 left-10 rounded-sm"></div> <!-- Metali -->
-                        <div id="bubble-container" class="absolute inset-0"></div>
-                    </div>
-                    <button class="btn-large btn-blue" onclick="startBubbles()"><i class="fas fa-eye"></i> Shiko Flluskat</button>
-                </div>
-            </div>
-
-            <!-- ================= KLASA 11 ================= -->
-            <div id="content-klasa11" class="hidden">
-                <!-- Exp 11.1: Elektroliza -->
-                <div id="exp-11-1" class="experiment-area">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Elektroliza e Ujit</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Rryma elektrike ndan ujin në Hidrogjen dhe Oksigjen.</p>
-                    <div class="beaker mb-6 relative" style="width: 240px; height: 180px;">
-                        <div class="liquid bg-blue-50" style="height: 70%;"></div>
-                        <!-- Elektrodat -->
-                        <div class="w-6 h-24 bg-slate-800 absolute bottom-0 left-12"></div>
-                        <div class="w-6 h-24 bg-slate-800 absolute bottom-0 right-12"></div>
-                        <div class="absolute bottom-24 left-10 text-xl font-bold text-slate-600">(-)</div>
-                        <div class="absolute bottom-24 right-10 text-xl font-bold text-slate-600">(+)</div>
-                        <div id="elec-bubbles" class="absolute inset-0"></div>
-                    </div>
-                    <button class="btn-large btn-blue" onclick="startElectrolysis()"><i class="fas fa-bolt"></i> Ndiz Rrymën</button>
-                </div>
-
-                <!-- Exp 11.2: Ndryshkja -->
-                <div id="exp-11-2" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Koha dhe Ndryshkja</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Lëviz kohën përpara. Shiko si oksigjeni dhe uji ndryshkin hekurin.</p>
-                    <div class="nail-iron mb-8">
-                        <div id="nail-rust" class="rust-overlay"></div>
-                    </div>
-                    <div class="w-full max-w-md bg-slate-100 p-4 rounded-xl text-center">
-                        <label class="font-bold text-xl mb-2 block">Koha (Ditë): <span id="rust-days" class="text-blue-600">0</span></label>
-                        <input type="range" id="rust-slider" min="0" max="30" value="0" oninput="updateRust()">
-                    </div>
-                </div>
-
-                <!-- Exp 11.3: Shpejtësia & Temperatura -->
-                <div id="exp-11-3" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Shpejtësia dhe Temperatura</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Rrit temperaturën për t'u dhënë energji grimcave!</p>
-                    <canvas id="canvas-11-3" width="500" height="250" class="bg-slate-50 border-2 border-slate-300 rounded-xl mb-4 max-w-full"></canvas>
-                    <div class="w-full max-w-md bg-slate-100 p-4 rounded-xl text-center">
-                        <label class="font-bold text-xl mb-2 block">Temperatura: <span id="temp-val" class="text-blue-600">Ftohtë</span></label>
-                        <input type="range" id="temp-slider" min="1" max="100" value="20" oninput="updateKinetic()">
-                    </div>
-                </div>
-
-                <!-- Exp 11.4: Ekzo/Endotermik -->
-                <div id="exp-11-4" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Reaksionet Ekzo/Endotermike</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Cili reaksion jep nxehtësi (Ekzo) dhe cili merr (Endo)?</p>
-                    <div class="thermometer mb-8">
-                        <div class="thermo-fluid" id="thermo-level"></div>
-                        <div class="thermo-bulb"></div>
-                    </div>
-                    <div class="flex gap-4">
-                        <button class="btn-large btn-green" onclick="setThermo('exo')"><i class="fas fa-fire"></i> Ekzotermik (Nxehet)</button>
-                        <button class="btn-large btn-blue" onclick="setThermo('endo')"><i class="fas fa-snowflake"></i> Endotermik (Ftohet)</button>
-                    </div>
-                </div>
-
-                <!-- Exp 11.5: Lakmusi -->
-                <div id="exp-11-5" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Letra e Lakmusit</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Fut letrën treguese në lëngje të ndryshme për të gjetur nëse është Acid apo Bazë.</p>
-                    <div class="flex flex-col items-center relative mb-6" style="height: 250px;">
-                        <div id="litmus-strip" class="litmus-paper z-10 absolute top-0"></div>
-                        <div class="beaker absolute bottom-0 z-20" style="background: rgba(255,255,255,0.5);">
-                            <div id="litmus-liquid" class="liquid bg-slate-200" style="height: 60%; opacity: 0.8;"></div>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 z-30">
-                        <button class="btn-large bg-red-500 text-white shadow-[0_6px_0_#B91C1C] hover:-translate-y-1 active:translate-y-2 active:shadow-none" onclick="testLitmus('acid')">Provo Acid</button>
-                        <button class="btn-large bg-blue-500 text-white shadow-[0_6px_0_#1D4ED8] hover:-translate-y-1 active:translate-y-2 active:shadow-none" onclick="testLitmus('base')">Provo Bazë</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= KLASA 12 ================= -->
-            <div id="content-klasa12" class="hidden">
-                <!-- Exp 12.1: Forma Gjeometrike -->
-                <div id="exp-12-1" class="experiment-area">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Gjeometria Molekulare</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Si vendosen atomet në hapësirë sipas teorisë VSEPR?</p>
-                    <div id="geo-container" class="relative w-full max-w-sm h-64 bg-slate-50 rounded-2xl border-2 border-slate-200 mb-6 flex items-center justify-center">
-                         <span class="text-slate-400 font-bold">Zgjidh formën...</span>
-                    </div>
-                    <div class="flex gap-4 flex-wrap justify-center">
-                        <button class="btn-large btn-blue" onclick="drawGeo('H2O')">Këndore (H₂O)</button>
-                        <button class="btn-large btn-green" onclick="drawGeo('CH4')">Tetraedrike (CH₄)</button>
-                        <button class="btn-large btn-purple" onclick="drawGeo('CO2')">Lineare (CO₂)</button>
-                    </div>
-                </div>
-
-                <!-- Exp 12.2: Joni Përbashkët -->
-                <div id="exp-12-2" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Efekti i Jonit të Përbashkët</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Shtimi i një kripe me të njëjtin jon shkakton formimin e precipitatit (fundërrisë).</p>
-                    <div class="beaker mb-6 relative bg-blue-50">
-                        <div class="liquid bg-blue-100" style="height: 80%;"></div>
-                        <div id="precipitate-container" class="absolute inset-0"></div>
-                        <div id="bottom-solid" class="absolute bottom-0 w-full h-4 bg-white opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-                    <button class="btn-large btn-blue" onclick="addCommonIon()"><i class="fas fa-salt"></i> Shto NaCl</button>
-                </div>
-
-                <!-- Exp 12.3: Katalizatori -->
-                <div id="exp-12-3" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Ndikimi i Katalizatorit</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Katalizatori e rrit shumë shpejtësinë e reaksionit pa u harxhuar vetë.</p>
-                    <div class="w-full text-left font-bold text-slate-600 mb-2">Pa Katalizator (E Ngadaltë)</div>
-                    <div class="track">
-                        <div id="car-slow" class="car car-slow">P</div>
-                    </div>
-                    <div class="w-full text-left font-bold text-slate-600 mb-2 mt-4">Me Katalizator (E Shpejtë)</div>
-                    <div class="track">
-                        <div id="car-fast" class="car car-fast">K</div>
-                    </div>
-                    <button class="btn-large btn-green mt-6" onclick="raceCars()"><i class="fas fa-flag-checkered"></i> Fillo Reaksionin</button>
-                </div>
-
-                <!-- Exp 12.4: Titullimi -->
-                <div id="exp-12-4" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Lakorja e Titullimit</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Shto pika acidi deri sa lëngu rozë (bazë + fenolftaleinë) të çngjyroset (pikë e ekuivalencës).</p>
-                    <div class="beaker mb-6 relative">
-                        <div id="titration-liquid" class="liquid bg-pink-400" style="height: 60%;"></div>
-                        <div id="titration-drop" class="drop"></div>
-                    </div>
-                    <div class="w-full max-w-md bg-slate-100 p-4 rounded-xl text-center mb-6">
-                        <div class="w-full bg-slate-300 h-4 rounded-full overflow-hidden">
-                            <div id="titration-progress" class="bg-blue-500 h-full w-0 transition-all"></div>
-                        </div>
-                        <div class="mt-2 font-bold text-slate-600">Vëllimi i shtuar</div>
-                    </div>
-                    <button class="btn-large btn-blue" onclick="titrateDrop()"><i class="fas fa-tint"></i> Lësho 1 Pikë</button>
-                </div>
-
-                <!-- Exp 12.5: Oksidimi -->
-                <div id="exp-12-5" class="experiment-area hidden">
-                    <h3 class="text-3xl font-extrabold mb-4 text-center">Oksidimi i Alkooleve</h3>
-                    <p class="text-xl mb-6 text-center text-slate-600">Dikromati i Kaliumit (Portokalli) kthehet në jon Kromi III (Jeshil) kur oksidon alkoolin.</p>
-                    <div class="flask mb-8">
-                        <div id="ox-liquid" class="flask-liquid"></div>
-                    </div>
-                    <button class="btn-large btn-green" onclick="oxidizeAlcohol()"><i class="fas fa-magic"></i> Fillo Oksidimin</button>
-                </div>
-            </div>
-            
-        </section>
-    </main>
-
-    <div id="toast">
-        <i class="fas fa-star text-yellow-300"></i>
-        <span id="toast-msg">Të lumtë!</span>
+    <div class="tabs-container" id="class-tabs">
+        <button class="tab-btn active" onclick="loadClass(10)">Klasa 10</button>
+        <button class="tab-btn" onclick="loadClass(11)">Klasa 11</button>
+        <button class="tab-btn" onclick="loadClass(12)">Klasa 12</button>
     </div>
 
+    <div class="sub-tabs-container" id="exp-tabs">
+        <!-- Butonat e eksperimenteve mbushen dinamikisht nga JS -->
+    </div>
+
+    <main id="experiment-area">
+        <!-- Përmbajtja e eksperimentit -->
+    </main>
+
+    <div id="toast-container"></div>
+
     <script>
-        // Ndihmës për zgjedhjen e elementeve
-        const $ = id => document.getElementById(id);
-        const $$ = selector => document.querySelectorAll(selector);
+        // === STRUKTURA E TË DHËNAVE DHE EKSPERIMENTEVE ===
+        const labData = {
+            10: [
+                { title: "1. Shpërhapja e Grimcave", render: render10_1 },
+                { title: "2. Kromatografia", render: render10_2 },
+                { title: "3. Asnjanësimi Acido-Bazik", render: render10_3 },
+                { title: "4. Modelet Molekulare", render: render10_4 },
+                { title: "5. Gazi nga Acidi", render: render10_5 }
+            ],
+            11: [
+                { title: "1. Elektroliza", render: render11_1 },
+                { title: "2. Ndryshkja e Hekurit", render: render11_2 },
+                { title: "3. Shpejtësia & Temperatura", render: render11_3 },
+                { title: "4. Ekzo/Endotermik", render: render11_4 },
+                { title: "5. Letra e Lakmusit", render: render11_5 }
+            ],
+            12: [
+                { title: "1. Forma Gjeometrike", render: render12_1 },
+                { title: "2. Efekti i Jonit", render: render12_2 },
+                { title: "3. Ndikimi i Katalizatorit", render: render12_3 },
+                { title: "4. Lakorja e Titullimit", render: render12_4 },
+                { title: "5. Oksidimi i Alkooleve", render: render12_5 }
+            ]
+        };
 
-        // --- NAVIGIMI ---
-        function showClass(className) {
-            // Fshih të gjitha klasat
-            ['klasa10', 'klasa11', 'klasa12'].forEach(c => {
-                $('content-' + c).classList.add('hidden');
-                $('nav-' + c).classList.add('hidden');
-                $('tab-' + c).classList.remove('active');
+        let currentClass = 10;
+        let animationFrameId = null; 
+        let intervalId = null;
+
+        // === FUNKSIONET KRYESORE ===
+        function loadClass(classNum) {
+            currentClass = classNum;
+            
+            // Ndrysho butonin aktiv të klasës
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText.includes(classNum)) btn.classList.add('active');
             });
-            // Shfaq të zgjedhurën
-            $('content-' + className).classList.remove('hidden');
-            $('nav-' + className).classList.remove('hidden');
-            $('tab-' + className).classList.add('active');
+
+            // Krijo butonat për eksperimentet e kësaj klase
+            const expTabs = document.getElementById('exp-tabs');
+            expTabs.innerHTML = '';
+            labData[classNum].forEach((exp, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'sub-tab-btn';
+                if(index === 0) btn.classList.add('active');
+                btn.innerText = exp.title;
+                btn.onclick = () => loadExperiment(index, btn);
+                expTabs.appendChild(btn);
+            });
+
+            // Ngarko eksperimentin e parë
+            loadExperiment(0, expTabs.firstChild);
+            showToast(`U hap laboratori për Klasën ${classNum}!`);
+        }
+
+        function loadExperiment(index, btnElement) {
+            // Pastro animimet e vjetra
+            if(animationFrameId) cancelAnimationFrame(animationFrameId);
+            if(intervalId) clearInterval(intervalId);
+
+            document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
+            if(btnElement) btnElement.classList.add('active');
+
+            const expArea = document.getElementById('experiment-area');
+            expArea.innerHTML = ''; 
             
-            // Shfaq eksperimentin e parë të klasës
-            let classNum = className.replace('klasa', '');
-            showExp(classNum, '1');
-        }
-
-        function showExp(classNum, expNum) {
-            // Fshih të gjitha eksperimentet e kësaj klase
-            const exps = $$(`#content-klasa${classNum} .experiment-area`);
-            exps.forEach(e => e.classList.add('hidden'));
+            const exp = labData[currentClass][index];
             
-            // Hiq 'active' nga butonat e kësaj klase
-            const btns = $$(`#nav-klasa${classNum} .exp-btn`);
-            btns.forEach(b => b.classList.remove('active'));
+            const title = document.createElement('h2');
+            title.className = 'exp-title';
+            title.innerText = exp.title;
+            expArea.appendChild(title);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.style.width = "100%";
+            contentDiv.style.display = "flex";
+            contentDiv.style.flexDirection = "column";
+            contentDiv.style.alignItems = "center";
+            expArea.appendChild(contentDiv);
+
+            // Ekzekuto funksionin specifik të eksperimentit
+            exp.render(contentDiv);
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerText = message;
+            container.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 3000);
+        }
+
+        // === RENDERIMET KLASA 10 ===
+        function render10_1(container) {
+            container.innerHTML = `<canvas id="diffCanvas" width="400" height="250" style="border:2px solid #ccc; background:#fff; border-radius:10px;"></canvas>
+            <div class="controls"><button class="action-btn" id="btnDiff">Fillo Shpërhapjen</button></div>`;
             
-            // Shfaq të zgjedhurin
-            $(`exp-${classNum}-${expNum}`).classList.remove('hidden');
-            $(`btn-${classNum}-${expNum}`).classList.add('active');
-
-            // Ndalo animacionet e mëparshme (Canvas)
-            if(animFrame10_1) cancelAnimationFrame(animFrame10_1);
-            if(animFrame11_3) cancelAnimationFrame(animFrame11_3);
-
-            // Reseto disa gjendje vizuale kur ndërrojmë skedën
-            resetExperiments();
-        }
-
-        function showToast(msg = "Të lumtë!", color = "var(--btn-green)") {
-            const toast = $('toast');
-            $('toast-msg').innerText = msg;
-            toast.style.backgroundColor = color;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
-        }
-
-        function resetExperiments() {
-            // 10.2
-            $$('.chrom-dot').forEach(d => { d.style.bottom = '30px'; d.style.opacity = '1'; });
-            $('chrom-base').style.opacity = '1';
-            // 10.3
-            $('neutral-liquid').style.backgroundColor = '#FCA5A5'; // Kuq
-            // 10.4, 12.1
-            $('mol-container').innerHTML = '<span class="text-slate-400 font-bold">Zgjidh një molekulë...</span>';
-            $('geo-container').innerHTML = '<span class="text-slate-400 font-bold">Zgjidh formën...</span>';
-            // 10.5, 11.1
-            $('bubble-container').innerHTML = '';
-            $('elec-bubbles').innerHTML = '';
-            // 11.2
-            $('rust-slider').value = 0; $('rust-days').innerText = '0'; $('nail-rust').style.opacity = '0';
-            // 11.4
-            $('thermo-level').style.height = '50%';
-            // 11.5
-            $('litmus-strip').classList.remove('dipped');
-            $('litmus-strip').style.backgroundColor = '#FEF08A';
-            $('litmus-liquid').style.backgroundColor = '#E2E8F0';
-            // 12.2
-            $('precipitate-container').innerHTML = ''; $('bottom-solid').style.opacity = '0';
-            // 12.3
-            $('car-slow').style.left = '5px'; $('car-fast').style.left = '5px';
-            // 12.4
-            titrationDrops = 0; $('titration-progress').style.width = '0%'; $('titration-liquid').style.backgroundColor = '#F472B6';
-            // 12.5
-            $('ox-liquid').style.backgroundColor = '#F59E0B';
-        }
-
-        // --- EKSPERIMENTET KLASA 10 ---
-
-        /* 10.1 Shpërhapja (Canvas) */
-        let animFrame10_1;
-        function startDiffusion() {
-            const canvas = $('canvas-10-1');
+            const canvas = document.getElementById('diffCanvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
-            for(let i=0; i<150; i++){
-                particles.push({
-                    x: canvas.width/2, y: canvas.height/2,
+            
+            document.getElementById('btnDiff').onclick = () => {
+                showToast("Shkëlqyeshëm! Grimcat po përhapen.");
+                particles = Array.from({length: 50}, () => ({
+                    x: 200, y: 125,
                     vx: (Math.random() - 0.5) * 4, vy: (Math.random() - 0.5) * 4,
-                    color: `hsl(${Math.random()*60 + 200}, 80%, 60%)`
-                });
-            }
-            function draw() {
-                ctx.clearRect(0,0, canvas.width, canvas.height);
-                // Shishja e hapur
-                ctx.fillStyle = '#94A3B8'; ctx.fillRect(canvas.width/2 - 20, canvas.height/2 - 20, 40, 40);
+                    color: Math.random() > 0.5 ? 'red' : 'blue'
+                }));
                 
-                particles.forEach(p => {
-                    p.x += p.vx; p.y += p.vy;
-                    // Kufijtë
-                    if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                    if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
-                    
-                    ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, Math.PI*2);
-                    ctx.fillStyle = p.color; ctx.fill();
-                });
-                animFrame10_1 = requestAnimationFrame(draw);
-            }
-            if(animFrame10_1) cancelAnimationFrame(animFrame10_1);
-            draw();
-            showToast("Shiko si përhapen grimcat në gjithë hapësirën!");
+                function draw() {
+                    ctx.clearRect(0,0,400,250);
+                    particles.forEach(p => {
+                        p.x += p.vx; p.y += p.vy;
+                        // Bounce
+                        if(p.x < 0 || p.x > 400) p.vx *= -1;
+                        if(p.y < 0 || p.y > 250) p.vy *= -1;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, 6, 0, Math.PI*2);
+                        ctx.fillStyle = p.color;
+                        ctx.fill();
+                    });
+                    animationFrameId = requestAnimationFrame(draw);
+                }
+                draw();
+            };
         }
 
-        /* 10.2 Kromatografia */
-        function startChromatography() {
-            $('chrom-base').style.opacity = '0';
-            $('chrom-dot-1').style.bottom = '180px';
-            $('chrom-dot-2').style.bottom = '130px';
-            $('chrom-dot-3').style.bottom = '80px';
-            showToast("Ngjyrat po ndahen sipas peshës së tyre!");
+        function render10_2(container) {
+            container.innerHTML = `
+                <div style="width:100px; height:250px; border:2px solid #ddd; background:#f9f9f9; position:relative; overflow:hidden;">
+                    <div id="waterLevel" style="position:absolute; bottom:0; width:100%; height:30px; background:rgba(0,0,255,0.2);"></div>
+                    <div id="dotRed" style="position:absolute; bottom:40px; left:40px; width:20px; height:20px; border-radius:50%; background:red; transition: bottom 3s;"></div>
+                    <div id="dotBlue" style="position:absolute; bottom:40px; left:40px; width:20px; height:20px; border-radius:50%; background:blue; mix-blend-mode: multiply; transition: bottom 4s;"></div>
+                </div>
+                <div class="controls"><button class="action-btn" id="btnChroma">Fut letrën në tretës</button></div>
+            `;
+            document.getElementById('btnChroma').onclick = () => {
+                showToast("Të lumtë! Ngjyrat po ndahen nga kromatografia.");
+                document.getElementById('dotRed').style.bottom = "180px";
+                document.getElementById('dotBlue').style.bottom = "120px";
+            };
         }
 
-        /* 10.3 Asnjanësimi */
-        function addBase() {
-            const liq = $('neutral-liquid');
-            // Nga Kuq në Jeshile
-            liq.style.backgroundColor = '#34D399'; 
-            showToast("Shkëlqyeshëm! Reaksioni u asnjanësua (pH 7).");
+        function render10_3(container) {
+            container.innerHTML = `
+                <div class="beaker"><div id="acidLiquid" class="liquid" style="background-color: rgba(255,0,0,0.6);"></div></div>
+                <p>Acidi është i Kuq. Baza do ta bëjë të Gjelbër (Asnjanës).</p>
+                <div class="controls"><button class="action-btn" id="btnNeutral">Shto Bazë (NaOH)</button></div>
+            `;
+            document.getElementById('btnNeutral').onclick = () => {
+                document.getElementById('acidLiquid').style.backgroundColor = "rgba(0,255,0,0.6)";
+                document.getElementById('acidLiquid').style.height = "70%";
+                showToast("E saktë! Tretësira u asnjanësua.");
+            };
         }
 
-        /* 10.4 Modele Molekulare */
-        function buildMol(type) {
-            const c = $('mol-container');
-            c.innerHTML = '';
-            if(type === 'H2O') {
-                c.innerHTML = `
-                    <div class="mol-bond" style="width: 80px; top: 120px; left: 100px; transform: rotate(30deg);"></div>
-                    <div class="mol-bond" style="width: 80px; top: 120px; left: 190px; transform: rotate(-30deg);"></div>
-                    <div class="atom-circle bg-red-500" style="width: 80px; height: 80px; top: 70px; left: 150px; font-size: 24px;">O</div>
-                    <div class="atom-circle bg-gray-300 text-slate-800" style="width: 50px; height: 50px; top: 130px; left: 80px; font-size: 18px;">H</div>
-                    <div class="atom-circle bg-gray-300 text-slate-800" style="width: 50px; height: 50px; top: 130px; left: 240px; font-size: 18px;">H</div>
-                `;
-            } else if(type === 'CO2') {
-                c.innerHTML = `
-                    <div class="mol-bond" style="width: 100px; top: 120px; left: 80px;"></div>
-                    <div class="mol-bond" style="width: 100px; top: 130px; left: 80px;"></div>
-                    <div class="mol-bond" style="width: 100px; top: 120px; left: 200px;"></div>
-                    <div class="mol-bond" style="width: 100px; top: 130px; left: 200px;"></div>
-                    <div class="atom-circle bg-gray-800" style="width: 70px; height: 70px; top: 90px; left: 155px; font-size: 24px;">C</div>
-                    <div class="atom-circle bg-red-500" style="width: 60px; height: 60px; top: 95px; left: 40px; font-size: 20px;">O</div>
-                    <div class="atom-circle bg-red-500" style="width: 60px; height: 60px; top: 95px; left: 280px; font-size: 20px;">O</div>
-                `;
-            }
-            showToast("Modeli u ndërtua saktë!");
+        function render10_4(container) {
+            container.innerHTML = `
+                <div style="display:flex; gap:50px; margin-top:20px;">
+                    <div style="text-align:center;">
+                        <h3>Uji (H₂O)</h3>
+                        <div style="display:flex; align-items:center; justify-content:center; position:relative; height:100px;">
+                            <div style="width:30px; height:30px; background:gray; border-radius:50%; position:absolute; left:0; top:20px;"></div>
+                            <div style="width:60px; height:60px; background:red; border-radius:50%; z-index:2;"></div>
+                            <div style="width:30px; height:30px; background:gray; border-radius:50%; position:absolute; right:0; top:20px;"></div>
+                        </div>
+                    </div>
+                    <div style="text-align:center;">
+                        <h3>Dioksidi Karbonit (CO₂)</h3>
+                        <div style="display:flex; align-items:center; justify-content:center; height:100px;">
+                            <div style="width:40px; height:40px; background:red; border-radius:50%;"></div>
+                            <div style="width:60px; height:60px; background:black; border-radius:50%; margin: 0 -5px; z-index:2;"></div>
+                            <div style="width:40px; height:40px; background:red; border-radius:50%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top:20px;">Oksigjeni (i Kuq), Hidrogjeni (Gri), Karboni (i Zi)</p>
+            `;
         }
 
-        /* 10.5 Gazi nga Acidi */
-        function startBubbles() {
-            const c = $('bubble-container');
-            c.innerHTML = '';
-            for(let i=0; i<15; i++) {
-                let b = document.createElement('div');
-                b.className = 'bubble';
-                b.style.left = (40 + Math.random()*40) + 'px';
-                b.style.width = (10 + Math.random()*15) + 'px';
-                b.style.height = b.style.width;
-                b.style.animationDuration = (1 + Math.random()) + 's';
-                b.style.animationDelay = (Math.random()*2) + 's';
-                c.appendChild(b);
-            }
-            showToast("Flluskat e Hidrogjenit po dalin!");
+        function render10_5(container) {
+            container.innerHTML = `
+                <div class="beaker" id="gasBeaker" style="position:relative;">
+                    <div class="liquid" style="background-color:rgba(200,200,200,0.5);"></div>
+                    <div style="width:40px; height:20px; background:darkgray; position:absolute; bottom:10px; left:40px;"></div>
+                </div>
+                <div class="controls"><button class="action-btn" id="btnGas">Hidh Acid te Metali</button></div>
+            `;
+            document.getElementById('btnGas').onclick = () => {
+                showToast("Shumë mirë! Po çlirohet gaz hidrogjeni.");
+                const beaker = document.getElementById('gasBeaker');
+                intervalId = setInterval(() => {
+                    const bubble = document.createElement('div');
+                    bubble.style.width = "10px"; bubble.style.height = "10px";
+                    bubble.style.background = "white"; bubble.style.borderRadius = "50%";
+                    bubble.style.position = "absolute"; bubble.style.bottom = "30px";
+                    bubble.style.left = (40 + Math.random()*30) + "px";
+                    bubble.style.transition = "bottom 2s, opacity 2s";
+                    beaker.appendChild(bubble);
+                    setTimeout(() => { bubble.style.bottom = "180px"; bubble.style.opacity = "0"; }, 50);
+                    setTimeout(() => { bubble.remove(); }, 2000);
+                }, 300);
+            };
         }
 
-        // --- EKSPERIMENTET KLASA 11 ---
-        
-        /* 11.1 Elektroliza */
-        function startElectrolysis() {
-            const c = $('elec-bubbles');
-            c.innerHTML = '';
-            // Katoda (Hidrogjen - më shumë)
-            for(let i=0; i<20; i++) {
-                let b = document.createElement('div'); b.className = 'bubble';
-                b.style.left = '45px'; b.style.width = '8px'; b.style.height = '8px';
-                b.style.animationDuration = (0.5 + Math.random()) + 's'; b.style.animationDelay = (Math.random()) + 's';
-                c.appendChild(b);
-            }
-            // Anoda (Oksigjen - më pak)
-            for(let i=0; i<10; i++) {
-                let b = document.createElement('div'); b.className = 'bubble';
-                b.style.left = '185px'; b.style.width = '12px'; b.style.height = '12px';
-                b.style.animationDuration = (0.8 + Math.random()) + 's'; b.style.animationDelay = (Math.random()) + 's';
-                c.appendChild(b);
-            }
-            showToast("Uji po ndahet në gaze!");
+        // === RENDERIMET KLASA 11 ===
+        function render11_1(container) {
+            container.innerHTML = `
+                <div class="beaker" id="elecBeaker" style="position:relative; width: 160px;">
+                    <div class="liquid" style="background-color:rgba(0,255,255,0.4); height: 70%;"></div>
+                    <div style="width:15px; height:120px; background:#444; position:absolute; bottom:10px; left:40px;"></div>
+                    <div style="width:15px; height:120px; background:#444; position:absolute; bottom:10px; right:40px;"></div>
+                    <div style="position:absolute; top:20px; left:35px; font-weight:bold;">Anoda</div>
+                    <div style="position:absolute; top:20px; right:20px; font-weight:bold;">Katoda</div>
+                </div>
+                <div class="controls"><button class="action-btn" id="btnElec">Ndiz Rrymën</button></div>
+            `;
+            document.getElementById('btnElec').onclick = () => {
+                showToast("Të lumtë! Elektroliza filloi.");
+                const beaker = document.getElementById('elecBeaker');
+                intervalId = setInterval(() => {
+                    [42, 102].forEach(leftPos => {
+                        const bubble = document.createElement('div');
+                        bubble.style.width = "6px"; bubble.style.height = "6px";
+                        bubble.style.background = "rgba(255,255,255,0.8)"; bubble.style.borderRadius = "50%";
+                        bubble.style.position = "absolute"; bubble.style.bottom = "20px";
+                        bubble.style.left = leftPos + Math.random()*5 + "px";
+                        bubble.style.transition = "bottom 1.5s linear";
+                        beaker.appendChild(bubble);
+                        setTimeout(() => bubble.style.bottom = "130px", 50);
+                        setTimeout(() => bubble.remove(), 1500);
+                    });
+                }, 200);
+            };
         }
 
-        /* 11.2 Ndryshkja */
-        function updateRust() {
-            const val = $('rust-slider').value;
-            $('rust-days').innerText = val;
-            $('nail-rust').style.opacity = val / 30;
-            if(val == 30) showToast("Hekuri u ndryshk plotësisht (Oksid Hekuri)!");
+        function render11_2(container) {
+            container.innerHTML = `
+                <div style="display:flex; align-items:center; gap:10px; margin: 30px 0;">
+                    <div style="width:150px; height:30px; background:#aaa; border-radius:5px 15px 15px 5px; position:relative; box-shadow: inset 0 -5px 5px rgba(0,0,0,0.2);" id="nail">
+                       <div style="position:absolute; left:-10px; top:-5px; width:20px; height:40px; background:#aaa; border-radius:5px;"></div>
+                    </div>
+                </div>
+                <p>Koha në mjedis me lagështi:</p>
+                <div class="controls"><input type="range" id="rustSlider" min="0" max="100" value="0"></div>
+                <p id="rustText">Hekur i pastër</p>
+            `;
+            document.getElementById('rustSlider').oninput = function() {
+                const val = this.value;
+                const r = 170 + (139 - 170) * (val/100);
+                const g = 170 + (69 - 170) * (val/100);
+                const b = 170 + (19 - 170) * (val/100);
+                const color = `rgb(${r},${g},${b})`;
+                
+                document.getElementById('nail').style.backgroundColor = color;
+                document.getElementById('nail').firstElementChild.style.backgroundColor = color;
+                
+                if(val == 100) {
+                    document.getElementById('rustText').innerText = "Plotësisht i ndryshkur (Oksid Hekuri)";
+                    showToast("Shumë mirë! Pe se si ndryshkja varet nga koha.");
+                } else {
+                    document.getElementById('rustText').innerText = "Duke u ndryshkur...";
+                }
+            };
         }
 
-        /* 11.3 Kinetika */
-        let animFrame11_3;
-        let speedMult = 1;
-        function updateKinetic() {
-            const val = $('temp-slider').value;
-            speedMult = val / 20;
-            $('temp-val').innerText = val > 70 ? 'Nxehtë' : (val > 40 ? 'Ngrohtë' : 'Ftohtë');
-            if(val > 80) showToast("Kujdes! Grimcat po lëvizin shumë shpejt!", "var(--btn-purple)");
-            
-            if(!animFrame11_3) startKinetic();
-        }
-        function startKinetic() {
-            const canvas = $('canvas-11-3');
+        function render11_3(container) {
+            container.innerHTML = `
+                <canvas id="speedCanvas" width="300" height="200" style="border:2px solid #ccc; border-radius:10px;"></canvas>
+                <p>Temperatura: <span id="tempVal">20</span>°C</p>
+                <div class="controls"><input type="range" id="tempSlider" min="0" max="100" value="20"></div>
+            `;
+            const canvas = document.getElementById('speedCanvas');
             const ctx = canvas.getContext('2d');
-            let particles = [];
-            for(let i=0; i<30; i++){
-                particles.push({
-                    x: Math.random()*canvas.width, y: Math.random()*canvas.height,
-                    vx: (Math.random() - 0.5)*2, vy: (Math.random() - 0.5)*2, radius: 10
-                });
-            }
-            function draw() {
-                ctx.clearRect(0,0, canvas.width, canvas.height);
+            const particles = Array.from({length: 30}, () => ({
+                x: Math.random()*300, y: Math.random()*200,
+                baseVx: (Math.random()-0.5)*2, baseVy: (Math.random()-0.5)*2
+            }));
+
+            function drawParticles() {
+                const temp = document.getElementById('tempSlider').value;
+                const speedMult = (temp / 20) || 0.1;
+                ctx.clearRect(0,0,300,200);
+                
+                // Color mapping: cold (blue) to hot (red)
+                const r = Math.min(255, temp * 2.5);
+                const b = Math.max(0, 255 - temp * 2.5);
+                ctx.fillStyle = `rgb(${r}, 0, ${b})`;
+
                 particles.forEach(p => {
-                    p.x += p.vx * speedMult; p.y += p.vy * speedMult;
-                    if(p.x < p.radius || p.x > canvas.width-p.radius) p.vx *= -1;
-                    if(p.y < p.radius || p.y > canvas.height-p.radius) p.vy *= -1;
-                    ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI*2);
-                    ctx.fillStyle = '#EF4444'; ctx.fill();
-                    ctx.strokeStyle = '#991B1B'; ctx.stroke();
+                    p.x += p.baseVx * speedMult;
+                    p.y += p.baseVy * speedMult;
+                    if(p.x<0 || p.x>300) p.baseVx *= -1;
+                    if(p.y<0 || p.y>200) p.baseVy *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 5, 0, Math.PI*2);
+                    ctx.fill();
                 });
-                animFrame11_3 = requestAnimationFrame(draw);
+                animationFrameId = requestAnimationFrame(drawParticles);
             }
-            draw();
+            drawParticles();
+
+            document.getElementById('tempSlider').onchange = () => showToast("Bravo! Rritja e temperaturës rrit shpejtësinë e goditjeve.");
+            document.getElementById('tempSlider').oninput = function() { document.getElementById('tempVal').innerText = this.value; };
         }
 
-        /* 11.4 Ekzo/Endo */
-        function setThermo(type) {
-            if(type === 'exo') {
-                $('thermo-level').style.height = '90%';
-                showToast("Reaksion Ekzotermik: Lëshon nxehtësi!", "var(--btn-red)");
-            } else {
-                $('thermo-level').style.height = '20%';
-                showToast("Reaksion Endotermik: Thith nxehtësi!", "var(--btn-blue)");
-            }
+        function render11_4(container) {
+            container.innerHTML = `
+                <div style="width:30px; height:150px; border:4px solid #333; border-radius:15px; position:relative; background:#eee; margin-top:20px;">
+                    <div id="mercury" style="position:absolute; bottom:0; width:100%; height:50%; background:red; border-radius:0 0 10px 10px; transition: height 1s, background 1s;"></div>
+                </div>
+                <div class="controls">
+                    <button class="action-btn" id="btnExo" style="background:#dc3545;">Ekzotermik (Çliron Nxehtësi)</button>
+                    <button class="action-btn" id="btnEndo" style="background:#007bff;">Endotermik (Thith Nxehtësi)</button>
+                </div>
+            `;
+            document.getElementById('btnExo').onclick = () => {
+                document.getElementById('mercury').style.height = "90%";
+                document.getElementById('mercury').style.background = "red";
+                showToast("Saktë! Termometri rritet.");
+            };
+            document.getElementById('btnEndo').onclick = () => {
+                document.getElementById('mercury').style.height = "20%";
+                document.getElementById('mercury').style.background = "blue";
+                showToast("Saktë! Termometri ulet.");
+            };
         }
 
-        /* 11.5 Lakmusi */
-        function testLitmus(type) {
-            const strip = $('litmus-strip');
-            const liq = $('litmus-liquid');
-            strip.classList.remove('dipped');
-            
-            setTimeout(() => {
-                liq.style.backgroundColor = type === 'acid' ? '#FCA5A5' : '#93C5FD';
-                strip.classList.add('dipped');
+        function render11_5(container) {
+            container.innerHTML = `
+                <div id="paperStrip" style="width:50px; height:150px; background:#f4f4c8; border:1px solid #ccc; margin:20px; transition: background 1s;"></div>
+                <div class="controls">
+                    <button class="action-btn" id="btnAcidPaper">Fut në Acid</button>
+                    <button class="action-btn" id="btnBasePaper">Fut në Bazë</button>
+                </div>
+            `;
+            document.getElementById('btnAcidPaper').onclick = () => {
+                document.getElementById('paperStrip').style.background = "#ff6b6b";
+                showToast("Të lumtë! Letra bëhet e Kuqe.");
+            };
+            document.getElementById('btnBasePaper').onclick = () => {
+                document.getElementById('paperStrip').style.background = "#4dabf7";
+                showToast("Të lumtë! Letra bëhet e Kaltër.");
+            };
+        }
+
+        // === RENDERIMET KLASA 12 ===
+        function render12_1(container) {
+            container.innerHTML = `
+                <div style="display:flex; justify-content:space-around; width:100%; margin-top:20px; align-items:flex-end;">
+                    <div style="text-align:center;">
+                        <h3 style="color:#0056b3;">Uji (Këndore)</h3>
+                        <svg width="100" height="100"><circle cx="50" cy="30" r="15" fill="red"/><circle cx="20" cy="70" r="10" fill="gray"/><circle cx="80" cy="70" r="10" fill="gray"/><line x1="50" y1="30" x2="20" y2="70" stroke="black" stroke-width="3"/><line x1="50" y1="30" x2="80" y2="70" stroke="black" stroke-width="3"/></svg>
+                    </div>
+                    <div style="text-align:center;">
+                        <h3 style="color:#0056b3;">CO₂ (Lineare)</h3>
+                        <svg width="120" height="100"><circle cx="60" cy="50" r="15" fill="black"/><circle cx="20" cy="50" r="15" fill="red"/><circle cx="100" cy="50" r="15" fill="red"/><line x1="20" y1="47" x2="60" y2="47" stroke="black" stroke-width="3"/><line x1="20" y1="53" x2="60" y2="53" stroke="black" stroke-width="3"/><line x1="60" y1="47" x2="100" y2="47" stroke="black" stroke-width="3"/><line x1="60" y1="53" x2="100" y2="53" stroke="black" stroke-width="3"/></svg>
+                    </div>
+                    <div style="text-align:center;">
+                        <h3 style="color:#0056b3;">Metani (Tetraedrike)</h3>
+                        <svg width="100" height="100"><circle cx="50" cy="50" r="15" fill="black"/><circle cx="50" cy="15" r="8" fill="gray"/><circle cx="20" cy="75" r="8" fill="gray"/><circle cx="80" cy="75" r="8" fill="gray"/><line x1="50" y1="50" x2="50" y2="15" stroke="black" stroke-width="3"/><line x1="50" y1="50" x2="20" y2="75" stroke="black" stroke-width="3"/><line x1="50" y1="50" x2="80" y2="75" stroke="black" stroke-width="3"/></svg>
+                    </div>
+                </div>
+                <p style="margin-top:20px; font-size:18px;">Gjeometria e molekulave varet nga çiftet e elektroneve.</p>
+            `;
+        }
+
+        function render12_2(container) {
+            container.innerHTML = `
+                <div class="beaker" id="ionBeaker" style="position:relative;">
+                    <div class="liquid" style="background-color:rgba(100,200,100,0.4); height: 80%;"></div>
+                </div>
+                <div class="controls"><button class="action-btn" id="btnAddIon">Shto Jon të Përbashkët</button></div>
+            `;
+            document.getElementById('btnAddIon').onclick = () => {
+                showToast("Bukur! Joni i përbashkët ul tretshmërinë (Krijon precipitat).");
+                const beaker = document.getElementById('ionBeaker');
+                for(let i=0; i<15; i++) {
+                    const dot = document.createElement('div');
+                    dot.style.width = "8px"; dot.style.height = "8px";
+                    dot.style.background = "white"; dot.style.borderRadius = "50%";
+                    dot.style.position = "absolute"; dot.style.top = "10px";
+                    dot.style.left = 10 + Math.random()*80 + "px";
+                    dot.style.transition = "top 2s cubic-bezier(0.4, 0, 1, 1)";
+                    beaker.appendChild(dot);
+                    setTimeout(() => dot.style.top = (160 + Math.random()*10) + "px", 50);
+                }
+            };
+        }
+
+        function render12_3(container) {
+            container.innerHTML = `
+                <div style="width:100%; border-bottom:3px dashed #ccc; padding:10px 0; position:relative; height:40px;">
+                    <span style="position:absolute; left:0; top:-10px; font-size:16px;">Pa Katalizator</span>
+                    <div id="car1" style="width:30px; height:30px; background:red; border-radius:5px; position:absolute; left:0; transition: left 4s linear;"></div>
+                </div>
+                <div style="width:100%; border-bottom:3px dashed #ccc; padding:10px 0; position:relative; height:40px; margin-top:30px;">
+                    <span style="position:absolute; left:0; top:-10px; font-size:16px;">Me Katalizator</span>
+                    <div id="car2" style="width:30px; height:30px; background:green; border-radius:5px; position:absolute; left:0; transition: left 1s linear;"></div>
+                </div>
+                <div class="controls" style="margin-top:30px;"><button class="action-btn" id="btnRace">Fillo Reaksionin</button></div>
+            `;
+            document.getElementById('btnRace').onclick = () => {
+                document.getElementById('car1').style.left = "0";
+                document.getElementById('car2').style.left = "0";
                 setTimeout(() => {
-                    strip.style.backgroundColor = type === 'acid' ? '#EF4444'
+                    document.getElementById('car1').style.left = "90%";
+                    document.getElementById('car2').style.left = "90%";
+                    showToast("E saktë! Katalizatori e rrit shumë shpejtësinë.");
+                }, 100);
+            };
+        }
+
+        function render12_4(container) {
+            container.innerHTML = `
+                <div class="beaker">
+                    <div id="titrLiquid" class="liquid" style="background-color:rgba(255,105,180,0.8); height:60%;"></div>
+                </div>
+                <div class="controls"><button class="action-btn" id="btnDrop">Shto Pikë Titulluesi</button></div>
+                <p id="titrText">Tretësira është Bazike (Fenolftaleina rozë)</p>
+            `;
+            let drops = 0;
+            document.getElementById('btnDrop').onclick = () => {
+                drops++;
+                const liquid = document.getElementById('titrLiquid');
+                if(drops === 1) liquid.style.backgroundColor = "rgba(255,105,180,0.5)";
+                if(drops === 2) liquid.style.backgroundColor = "rgba(255,105,180,0.2)";
+                if(drops >= 3) {
+                    liquid.style.backgroundColor = "rgba(200,200,200,0.2)";
+                    document.getElementById('titrText').innerText = "Pika e Ekuivalencës! Asnjanës.";
+                    showToast("Përsosmëri! Gjetëm pikën e ekuivalencës.");
+                }
+            };
+        }
+
+        function render12_5(container) {
+            container.innerHTML = `
+                <div class="beaker">
+                    <div id="alcLiquid" class="liquid" style="background-color:rgba(255,165,0,0.8); height:50%;"></div>
+                </div>
+                <p>Joni Dikromat (Portokalli)</p>
+                <div class="controls"><button class="action-btn" id="btnOxid">Oksido Alkoolin</button></div>
+            `;
+            document.getElementById('btnOxid').onclick = () => {
+                document.getElementById('alcLiquid').style.backgroundColor = "rgba(0,128,0,0.8)";
+                showToast("Bravo! Dikromati u reduktua në jone Kromi(III) jeshil.");
+            };
+        }
+
+        // Fillo aplikacionin
+        window.onload = () => loadClass(10);
+
+    </script>
+</body>
+</html>
